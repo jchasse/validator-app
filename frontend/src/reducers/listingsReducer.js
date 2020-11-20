@@ -1,4 +1,4 @@
-import uuid from "uuid"
+import {v4 as uuid} from 'uuid'
 
 const listingsReducer = (state = [], action) => {
 
@@ -10,7 +10,7 @@ const listingsReducer = (state = [], action) => {
 
 
         case 'DELETE_LISTING':
-            const listings = state.filter(listing => listing.id !== action.payload.listingId)
+            const listings = state.filter(listing => listing.id !== action.payload)
             return listings
         
         case 'EDIT_LISTING':
