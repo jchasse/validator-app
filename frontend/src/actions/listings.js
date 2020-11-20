@@ -4,11 +4,18 @@ export const addListing = listing => {
       type: 'ADD_LISTING',
       payload: listing
     }
- }
+}
   
- export const deleteListing = listingId => {
+export const deleteListing = listingId => {
     return {
         type: 'DELETE_LISTING',
-        listingId
+        payload: listingId
     }
- } 
+} 
+
+export const editListing = listing => {
+    return {
+        type: 'EDIT_LISTING',
+        payload: listing
+    }
+} 
