@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
+import {withRouter} from 'react-router-dom'
+
 
 class ListingInput extends Component {
 
@@ -24,6 +26,7 @@ class ListingInput extends Component {
             title: '',
             content: ''
         })
+        this.props.history.push('/listings')
     }
      
     render() {
@@ -68,4 +71,5 @@ class ListingInput extends Component {
     }
 }
 
-export default ListingInput
+export default withRouter(ListingInput) 
+
