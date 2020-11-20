@@ -6,7 +6,9 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 
 import App from './App'
 import rootReducer from './reducers/rootReducer'
+// import listingsReducer from './reducers/listingsReducer'
 
+// const initialState = {listings: []}
 const store = createStore( rootReducer, composeWithDevTools() )
 
 ReactDOM.render(
