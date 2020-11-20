@@ -16,6 +16,16 @@ class ListingInput extends Component {
             [event.target.name]: event.target.value
         })
     }
+        
+    handleOnSubmit(event) {
+        event.preventDefault()
+        this.props.addListing(this.state)
+        this.setState({
+            title: '',
+            content: ''
+        })
+    }
+     
     render() {
         return (
             <>
