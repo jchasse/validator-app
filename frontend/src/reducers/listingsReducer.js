@@ -10,8 +10,13 @@ const listingsReducer = (state = [], action) => {
 
 
         case 'DELETE_LISTING':
-            const listings = state.filter(listing => listing.id !== action.listingId)
+            const listings = state.filter(listing => listing.id !== action.payload.listingId)
             return listings
+        
+        case 'EDIT_LISTING':
+            debugger
+            const editedListingArray = state.map(listing => listing.id === action.payload.listing.id ? action.payload.listing : listing)
+            return editedListingArray
 
         default:
             return state
