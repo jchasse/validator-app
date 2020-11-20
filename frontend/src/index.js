@@ -1,19 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {BrowserRouter as Router} from 'react-router-dom'
+
 import {Provider} from 'react-redux'
 import {createStore} from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import {composeWithDevTools} from 'redux-devtools-extension'
 
 import App from './App'
 import rootReducer from './reducers/rootReducer'
-// import listingsReducer from './reducers/listingsReducer'
 
-// const initialState = {listings: []}
 const store = createStore( rootReducer, composeWithDevTools() )
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+  </Router>,
   document.getElementById('root')
 )
