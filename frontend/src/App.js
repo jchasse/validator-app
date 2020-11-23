@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import {Container} from 'react-bootstrap'
 
 import ListingsContainer from './containers/ListingsContainer'
-import Navbar from './containers/Navbar'
+import Navbar from './components/Navbar'
 
 
 
@@ -13,7 +13,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Container class="col-md-6">
+        <Container fluid="md">
           <ListingsContainer />
         </Container>
 

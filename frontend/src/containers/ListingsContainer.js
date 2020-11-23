@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 
 import ListingInput from '../components/listings/ListingInput'
 import Listings from '../components/listings/Listings'
-import Listing from '../components/listings/Listings'
-import {addListing, deleteListing} from '../actions/listings'
+import Listing from '../components/listings/Listing'
+import {addListing, deleteListing, editListing} from '../actions/listings'
 
 class ListingsContainer extends React.Component {
 
@@ -13,17 +13,27 @@ class ListingsContainer extends React.Component {
         return (
             <>
                 <Switch>
-                    <Route exact path='/listings'>
-                        <Listings listings={this.props.listings} deleteListing={this.props.deleteListing}/>   
-                    </Route>
                     <Route exact path='/listings/new'>
                         <ListingInput addListing={this.props.addListing} />    
                     </Route>
-                    {/* <Route exact path='/listings/:id' render={ routerProps => <Listing {...routerProps} listing={this.props.listings.find( listing => listing.id === routerProps.match.params.id)} />} /> */}
-                    {/* <Route path=''>
-                        {alert('This page does not exist.')}
-                        <Redirect to='/listings' />
-                    </Route> */}
+                    <Route exact path='/listings/:id' render={ routerProps => <Listing 
+                        {...routerProps} 
+                        listing={this.props.listings.find( listing => listing.id === routerProps.match.params.id)} 
+                        editListing={this.props.editListing}
+                        deleteListing={this.props.deleteListing}
+                        />} 
+                    />
+                    <Route exact path='/listings/:id/edit' render={ routerProps => <ListingInput 
+                        {...routerProps} 
+                        listing={this.props.listings.find( listing => listing.id === routerProps.match.params.id)} 
+                        editListing={this.props.editListing}  
+                        deleteListing={this.props.deleteListing}
+                        />} 
+                    />
+                    <Route exact path='/listings'>
+                        <ListingInput addListing={this.props.addListing} />    
+                        <Listings listings={this.props.listings} deleteListing={this.props.deleteListing} />   
+                    </Route>
                 </Switch>
             </>
         )
@@ -32,4 +42,4 @@ class ListingsContainer extends React.Component {
 
 const mapStateToProps = state => ({listings: state.listings})
 
-export default connect(mapStateToProps, {addListing, deleteListing})(ListingsContainer)
+export default connect(mapStateToProps, {addListing, deleteListing, editListing})(ListingsContainer)
