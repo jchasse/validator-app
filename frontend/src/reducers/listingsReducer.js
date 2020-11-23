@@ -23,8 +23,7 @@ const listingsReducer = (state = [{
             return listings
         
         case 'EDIT_LISTING':
-            debugger
-            const editedListingArray = state.map(listing => listing.id === action.payload.listing.id ? action.payload.listing : listing)
+            const editedListingArray = state.map(listing => listing.id === action.payload.id ? action.payload : listing)
             return editedListingArray
 
         default:
