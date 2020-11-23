@@ -15,7 +15,7 @@ const listingsReducer = (state = [{
 
         case 'ADD_LISTING':
             const listing = { title: action.payload.title, content: action.payload.content, id: uuid() }
-            return [ ...state, listing]
+            return [listing, ...state]
 
 
         case 'DELETE_LISTING':
