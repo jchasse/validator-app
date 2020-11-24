@@ -14,12 +14,25 @@ export const fetchListings = () => {
 }
 
 export const addListing = listing => {
-    return {
-      type: 'ADD_LISTING',
-      payload: listing
+    return (dispatch) => {
+        const options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json", "Accept": "application/json"},
+            body: JSON.stringify({listing})
+        }
+
+        fetch("http://localhost:3000/listings", options)
+            .then(response => response.json())
+            .then(listing => {
+                console.log(listing.data)
+                dispatch({
+                    type: "ADD_LISTING", 
+                    payload: listing.data
+                })
+            })
     }
 }
-  
+
 export const deleteListing = listingId => {
     return {
         type: 'DELETE_LISTING',
