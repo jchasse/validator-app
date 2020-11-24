@@ -10,6 +10,11 @@ class ListingsController < ApplicationController
         render json: ListingSerializer.new(listing)
     end
 
+    def update
+        listing = Listing.find_by(id: params[:id])
+        listing.update(listing_params)
+        render json: ListingSerializer.new(listing)
+    end
 
     def destroy
         listing = Listing.find_by(id: params[:id])
@@ -20,7 +25,7 @@ class ListingsController < ApplicationController
     private
 
     def listing_params
-        params.require(:listing).permit(:title, :city, :state, :content, :price, :cashflow, :link)
+        params.require(:listing).permit(:title, :city, :state, :content, :price, :cashflow, :link, :votes)
     end
 
 end
