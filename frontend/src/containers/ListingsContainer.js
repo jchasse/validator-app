@@ -5,9 +5,13 @@ import {Route, Switch} from 'react-router-dom'
 import ListingInput from '../components/listings/ListingInput'
 import Listings from '../components/listings/Listings'
 import Listing from '../components/listings/Listing'
-import {addListing, deleteListing, editListing} from '../actions/listings'
+import {fetchListings, addListing, deleteListing, editListing, upvoteListing, downvoteListing} from '../actions/listings'
 
 class ListingsContainer extends React.Component {
+
+    componentDidMount() {
+        this.props.fetchListings()
+    }
 
     render() {
         return (
@@ -33,6 +37,7 @@ class ListingsContainer extends React.Component {
                     <Route exact path='/listings'>
                         <ListingInput addListing={this.props.addListing} />    
                         <Listings listings={this.props.listings} deleteListing={this.props.deleteListing} />   
+                        <Listings listings={this.props.listings} deleteListing={this.props.deleteListing} upvoteListing={this.props.upvoteListing} downvoteListing={this.props.downvoteListing} />   
                     </Route>
                 </Switch>
             </>
@@ -42,4 +47,4 @@ class ListingsContainer extends React.Component {
 
 const mapStateToProps = state => ({listings: state.listings})
 
-export default connect(mapStateToProps, {addListing, deleteListing, editListing})(ListingsContainer)
+export default connect(mapStateToProps, {fetchListings, addListing, deleteListing, editListing, upvoteListing, downvoteListing})(ListingsContainer)
