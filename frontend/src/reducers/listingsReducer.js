@@ -22,8 +22,9 @@ const listingsReducer = (state = [], action) => {
             return listings
         
         case 'EDIT_LISTING':
-            const editedListingArray = state.map(listing => listing.id === action.payload.id ? action.payload : listing)
-            return editedListingArray
+            listings = state.map(listing => listing.id === action.payload.id ? (Object.assign( {}, {id: action.payload.id}, action.payload.attributes)) : listing )
+            console.log(`EDIT REDUCER FIRED: ${listings}`)
+            return listings
          
         case 'UPVOTE_LISTING':
             index = state.findIndex( listing => listing.id === action.payload.id)
