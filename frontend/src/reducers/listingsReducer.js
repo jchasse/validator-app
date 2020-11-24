@@ -16,7 +16,9 @@ const listingsReducer = (state = [], action) => {
             return listings
 
         case 'ADD_LISTING':
-            const listing = { title: action.payload.title, content: action.payload.content, id: uuid() }
+            debugger
+            listing = Object.assign( {}, {id: action.payload.id}, action.payload.attributes)
+            // listing = { title: action.payload.title, content: action.payload.content, id: uuid(), votes: 0 }
             return [listing, ...state]
 
         case 'DELETE_LISTING':
