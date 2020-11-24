@@ -11,6 +11,12 @@ class ListingsController < ApplicationController
     end
 
 
+    def destroy
+        listing = Listing.find_by(id: params[:id])
+        listing.delete
+        render json: {message: "Success"}
+    end
+
     private
 
     def listing_params
