@@ -34,13 +34,32 @@ export const addListing = listing => {
     }
 }
 
-    }
-} 
-
 export const editListing = listing => {
-    return {
-        type: 'EDIT_LISTING',
-        payload: listing
+    return (dispatch) => {
+        const url = `http://localhost:3000/listings/${listing.id}`
+        const options = {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json", "Accept": "application/json"},
+            body: JSON.stringify({listing})
+        }
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(listing => {
+                console.log(`EDIT FETCH FIRED: ${listing.data}`)
+                dispatch({
+                    type: "EDIT_LISTING", 
+                    payload: listing.data
+                })
+            })
+    }
+}
+//     return {
+//         type: 'EDIT_LISTING',
+//         payload: listing
+//     }
+// } 
+
 export const deleteListing = listingId => {
     return (dispatch) => {
         const url = `http://localhost:3000/listings/${listingId}`
