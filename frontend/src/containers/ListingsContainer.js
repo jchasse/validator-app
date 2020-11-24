@@ -36,7 +36,6 @@ class ListingsContainer extends React.Component {
                     />
                     <Route exact path='/listings'>
                         <ListingInput addListing={this.props.addListing} />    
-                        <Listings listings={this.props.listings} deleteListing={this.props.deleteListing} />   
                         <Listings listings={this.props.listings} deleteListing={this.props.deleteListing} upvoteListing={this.props.upvoteListing} downvoteListing={this.props.downvoteListing} />   
                     </Route>
                 </Switch>
