@@ -46,3 +46,17 @@ export const editListing = listing => {
         payload: listing
     }
 } 
+
+export const upvoteListing = listing => {
+    return {
+        type: 'UPVOTE_LISTING',
+        payload: listing
+    }
+} 
+
+export const downvoteListing = listing => {
+    return {
+        type: 'DOWNVOTE_LISTING',
+        payload: listing
+    }
+} 
