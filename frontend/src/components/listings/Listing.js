@@ -1,6 +1,7 @@
 import React from 'react'
-import {Card, Button} from 'react-bootstrap'
+import {Card, Button, Image, Row, Container} from 'react-bootstrap'
 import {withRouter} from 'react-router-dom'
+import '../../App.css'
 
 
 function Listing(props) {
@@ -13,14 +14,26 @@ function Listing(props) {
     return (
         <>
             <Card>
-                <Card.Img variant="top" src="https://picsum.photos/800/200" />              
                 <Card.Body>
-                    <Card.Title>
-                        {props.listing.title}
-                    </Card.Title>
-                    <Card.Text>
-                        {props.listing.id} - {props.listing.content}
-                    </Card.Text>
+                    <Container> 
+                        <Row>
+                            <Image src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" alt="avatar" roundedCircle/>  
+                            <div>
+                                <Card.Title>
+                                    {props.listing.title}
+                                </Card.Title>  
+                                <Card.Text>
+                                    <p class="card-text"><i class="far fa-clock pr-2"></i>{props.listing.created_at}</p>
+                                </Card.Text>
+                            </div>
+                        </Row>
+                    </Container>
+                    <Container>
+                        <Card.Img variant="top" src="https://picsum.photos/800/200" />   
+                        <Card.Text>
+                            {props.listing.content}
+                        </Card.Text>
+                    </Container>
                     <Button 
                         variant="secondary"
                         onClick={ () => props.history.push(`/listings/${props.listing.id}/edit`)} >
@@ -32,6 +45,21 @@ function Listing(props) {
                         Delete
                     </Button>
                 </Card.Body>
+                    <Card.Footer className="text-muted">
+                        <Button
+                            className="btn btn-secondary"
+                            onClick={ () => props.upvoteListing(props.listing)}>
+                            +
+                        </Button>
+                        <span> Votes: {props.listing.votes} </span>
+                        <Button
+                            className="btn btn-secondary"
+                            onClick={ () => props.downvoteListing(props.listing)}>
+                            -
+                        </Button>                        
+                    </Card.Footer>
+
+
             </Card>
 
 
