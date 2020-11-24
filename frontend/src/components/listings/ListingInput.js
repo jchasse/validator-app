@@ -22,9 +22,37 @@ class ListingInput extends Component {
         }
     }
 
-    editListing = () => {
+    // constructor(props) {
+    //     super()
+    //     const { id, title, city, state, content, price, cashflow, link } = props.listing
 
-    }
+        
+    //     this.state = {
+    //         id: (id ? id : ''),
+    //         title: (title ? title : ''),
+    //         city: (city ? city : ''),
+    //         state: (state ? state : ''),
+    //         content: (content ? content : ''),
+    //         price: (price ? price : ''),
+    //         cashflow: (cashflow ? cashflow : ''),
+    //         link: (link ? link : '')
+    //     }
+    // }
+
+    // constructor(id, title, city, state, content, price, cashflow, link ) {
+
+    //     super()
+    //     this.state = {
+    //         id: (id ? id : ''),
+    //         title: (id ? title : ''),
+    //         city: (id ? city : ''),
+    //         state: (id ? state : ''),
+    //         content: (id ? content : ''),
+    //         price: (id ? price : ''),
+    //         cashflow: (id ? cashflow : ''),
+    //         link: (id ? link : '')
+    //     }
+    // }
 
     handleOnChange(event) {
         this.setState({
@@ -47,7 +75,8 @@ class ListingInput extends Component {
             content: '',
             price: '',
             cashflow: '',
-            link: ''
+            link: '',
+            votes: 0
         })
         // this.props.history.push(`/listings/${this.state.id}`)
         this.props.history.push(`/listings`)
