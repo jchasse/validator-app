@@ -4,7 +4,7 @@ import Listing from './Listing'
 
 
 class Listings extends Component {
-    debugger
+    
     render() {
         const listingsList = this.props.listings.map( listing => <Listing key={listing.id} listing={listing} deleteListing={this.props.deleteListing} upvoteListing={this.props.upvoteListing} downvoteListing={this.props.downvoteListing}/>)
         return (

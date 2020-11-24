@@ -1,5 +1,3 @@
-import {v4 as uuid} from 'uuid'
-
 const listingsReducer = (state = [], action) => {
 
     let listings
@@ -9,20 +7,18 @@ const listingsReducer = (state = [], action) => {
     switch(action.type) {
 
         case 'FETCH_LISTINGS':
-            listings = action.payload.map(listing => {
-                return Object.assign( {}, {id: listing.id}, listing.attributes)
-            })
-            console.log(`Reducer: ${listings}`)
+            listings = action.payload.map(listing => Object.assign( {}, {id: listing.id}, listing.attributes) )
+            console.log(`FETCH REDUCER FIRED: ${listings}`)
             return listings
 
         case 'ADD_LISTING':
-            debugger
             listing = Object.assign( {}, {id: action.payload.id}, action.payload.attributes)
-            // listing = { title: action.payload.title, content: action.payload.content, id: uuid(), votes: 0 }
+            console.log(`CREATE REDUCER FIRED: ${listing}`)
             return [listing, ...state]
 
         case 'DELETE_LISTING':
             listings = state.filter(listing => listing.id !== action.payload)
+            console.log(`DELETE REDUCER FIRED: ${listings}`)
             return listings
         
         case 'EDIT_LISTING':

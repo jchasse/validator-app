@@ -29,7 +29,7 @@ class ListingsContainer extends React.Component {
                     />
                     <Route exact path='/listings/:id/edit' render={ routerProps => <ListingInput 
                         {...routerProps} 
-                        listing={this.props.listings.find( listing => listing.id === routerProps.match.params.id)} 
+                        listing={this.props.listings.find(listing => listing.id === routerProps.match.params.id)}
                         editListing={this.props.editListing}  
                         deleteListing={this.props.deleteListing}
                         />} 
