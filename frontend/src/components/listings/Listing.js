@@ -20,10 +20,10 @@ function Listing(props) {
                             <Image src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" alt="avatar" roundedCircle/>  
                             <div>
                                 <Card.Title>
-                                    {props.listing.title}
+                                    {props.listing && props.listing.title}
                                 </Card.Title>  
                                 <Card.Text>
-                                    <p class="card-text"><i class="far fa-clock pr-2"></i>{props.listing.created_at}</p>
+                                    <p className="card-text"><i class="far fa-clock pr-2"></i>{props.listing && props.listing.created_at}</p>
                                 </Card.Text>
                             </div>
                         </Row>
@@ -31,7 +31,7 @@ function Listing(props) {
                     <Container>
                         <Card.Img variant="top" src="https://picsum.photos/800/200" />   
                         <Card.Text>
-                            {props.listing.content}
+                            {props.listing && props.listing.content}
                         </Card.Text>
                     </Container>
                     <Button 
@@ -51,7 +51,7 @@ function Listing(props) {
                             onClick={ () => props.upvoteListing(props.listing)}>
                             +
                         </Button>
-                        <span> Votes: {props.listing.votes} </span>
+                        <span> Votes: {props.listing && props.listing.votes} </span>
                         <Button
                             className="btn btn-secondary"
                             onClick={ () => props.downvoteListing(props.listing)}>
