@@ -5,54 +5,38 @@ import {withRouter} from 'react-router-dom'
 
 class ListingInput extends Component {
 
-    constructor(props) {
+    // constructor(props) {
 
-        // const { id, title, city, state, content, price, cashflow, link } = this.props.listing
+    //     // const { id, title, city, state, content, price, cashflow, link } = this.props.listing
+
+    //     super(props)
+    //     this.state = {
+    //         id: (this.props.listing ? this.props.listing.id : ''),
+    //         title: (this.props.listing ? this.props.listing.title : ''),
+    //         city: (this.props.listing ? this.props.listing.city : ''),
+    //         state: (this.props.listing ? this.props.listing.state : ''),
+    //         content: (this.props.listing ? this.props.listing.content : ''),
+    //         price: (this.props.listing ? this.props.listing.price : ''),
+    //         cashflow: (this.props.listing ? this.props.listing.cashflow : ''),
+    //         link: (this.props.listing ? this.props.listing.link : '')
+    //     }
+    // }
+
+    constructor({id, title, city, state, content, price, cashflow, link, votes}) {
 
         super()
         this.state = {
-            id: (props.listing ? props.listing.id : ''),
-            title: (props.listing ? props.listing.title : ''),
-            city: (props.listing ? props.listing.city : ''),
-            state: (props.listing ? props.listing.state : ''),
-            content: (props.listing ? props.listing.content : ''),
-            price: (props.listing ? props.listing.price : ''),
-            cashflow: (props.listing ? props.listing.cashflow : ''),
-            link: (props.listing ? props.listing.link : '')
+            id: (id ? id : ''),
+            title: (id ? title : ''),
+            city: (id ? city : ''),
+            state: (id ? state : ''),
+            content: (id ? content : ''),
+            price: (id ? price : ''),
+            cashflow: (id ? cashflow : ''),
+            link: (id ? link : ''),
+            votes: (id ? votes : '')
         }
     }
-
-    // constructor(props) {
-    //     super()
-    //     const { id, title, city, state, content, price, cashflow, link } = props.listing
-
-        
-    //     this.state = {
-    //         id: (id ? id : ''),
-    //         title: (title ? title : ''),
-    //         city: (city ? city : ''),
-    //         state: (state ? state : ''),
-    //         content: (content ? content : ''),
-    //         price: (price ? price : ''),
-    //         cashflow: (cashflow ? cashflow : ''),
-    //         link: (link ? link : '')
-    //     }
-    // }
-
-    // constructor(id, title, city, state, content, price, cashflow, link ) {
-
-    //     super()
-    //     this.state = {
-    //         id: (id ? id : ''),
-    //         title: (id ? title : ''),
-    //         city: (id ? city : ''),
-    //         state: (id ? state : ''),
-    //         content: (id ? content : ''),
-    //         price: (id ? price : ''),
-    //         cashflow: (id ? cashflow : ''),
-    //         link: (id ? link : '')
-    //     }
-    // }
 
     handleOnChange(event) {
         this.setState({
@@ -81,6 +65,14 @@ class ListingInput extends Component {
         // this.props.history.push(`/listings/${this.state.id}`)
         this.props.history.push(`/listings`)
 
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props){ 
+            this.setState({
+                ...this.props.listing
+            })
+        }
     }
 
     render() {
