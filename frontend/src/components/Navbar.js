@@ -8,8 +8,8 @@ function NavBar(){
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Navbar.Brand href="#home">BiZinder</Navbar.Brand>
+            <Navbar bg="light" variant="light" expand="lg">
+                <Navbar.Brand>BiZinder</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mr-auto">
@@ -22,7 +22,7 @@ function NavBar(){
                     </Nav>
                     <Form inline>
                     <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-light">Search</Button>
+                        <Button variant="outline-dark">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Navbar>

@@ -81,7 +81,7 @@ class ListingInput extends Component {
             <>
                 <Form onSubmit={(event) => this.handleOnSubmit(event)}> 
                     <Form.Group>
-                        <Card>
+                        <Card border="dark">
                             <Card.Img variant="top" src="https://picsum.photos/800/200" />              
                             <Card.Body>
                                 <Card.Title>
@@ -94,7 +94,6 @@ class ListingInput extends Component {
                                             className="font-weight-bold" 
                                             onChange={(event) => this.handleOnChange(event)} />
                                     </Form.Group>
-                                    {this.state.title}
                                 </Card.Title>
                                 <Card.Text>
                                     <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -106,7 +105,6 @@ class ListingInput extends Component {
                                         placeholder="Listing Content"
                                         onChange={(event) => this.handleOnChange(event)} />
                                     </Form.Group>
-                                    {this.state.content}
                                 </Card.Text>
                                 <Button variant="primary" type="submit"> {editOrSubmit()} </Button>
                             </Card.Body>
