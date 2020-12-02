@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import {Form, Card, Button} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import {Form, Card, Button, Col} from 'react-bootstrap'
 
 import {addListing, editListing} from '../../actions/listings'
 
@@ -81,38 +81,55 @@ class ListingInput extends Component {
         const editOrSubmit = () => !this.props.listing ? 'Submit' : 'Update'
         return (
             <>
-                <Form onSubmit={(event) => this.handleOnSubmit(event)}> 
-                    <Form.Group>
-                        <Card border="dark">
-                            <Card.Img variant="top" src="https://picsum.photos/800/200" />              
-                            <Card.Body>
-                                <Card.Title>
-                                    <Form.Group controlId="exampleForm.ControlInput1">
-                                        <Form.Control 
-                                            name="title" 
-                                            type="text"
-                                            value={this.state.title}
-                                            placeholder="Listing Title" 
-                                            className="font-weight-bold" 
-                                            onChange={(event) => this.handleOnChange(event)} />
+                <Card border="dark" bg="dark">
+                    {/* <Card.Img variant="top" src="https://picsum.photos/800/200" />               */}
+                    <Card.Body>
+                        <Form onSubmit={(event) => this.handleOnSubmit(event)}> 
+                            <Form.Group>
+                                <Form.Group controlId="exampleForm.ControlInput1">
+                                    <Form.Control name="title" type="text" value={this.state.title} placeholder="Listing Title" className="font-weight-bold" onChange={(event) => this.handleOnChange(event)} />
+                                </Form.Group>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridPrice">
+                                        <Form.Control name="price" type="text" value={this.state.price} placeholder="Asking Price" onChange={(event) => this.handleOnChange(event)} />
                                     </Form.Group>
-                                </Card.Title>
-                                <Card.Text>
-                                    <Form.Group controlId="exampleForm.ControlTextarea1">
-                                        <Form.Control 
+                                    <Form.Group as={Col} controlId="formGridCashflow">
+                                        <Form.Control name="cashflow" type="text" value={this.state.cashflow} placeholder="Cashflow" onChange={(event) => this.handleOnChange(event)} />
+                                    </Form.Group>
+                                </Form.Row>
+                                <Form.Row>
+                                    <Form.Group as={Col} controlId="formGridCity">
+                                        <Form.Control name="city" type="text" value={this.state.city} placeholder="City" onChange={(event) => this.handleOnChange(event)} />
+                                    </Form.Group>
+
+                                    <Form.Group as={Col} controlId="formGridState">
+                                        <Form.Control name="state" as="select" value={this.state.state} placeholder="Choose..." onChange={(event) => this.handleOnChange(event)}>
+                                            <States />
+                                        </Form.Control>
+                                    </Form.Group>
+                                </Form.Row>
+                                <Form.Group controlId="exampleForm.ControlTextarea1">
+                                    <Form.Control 
                                         name="content" 
                                         as="textarea" 
                                         value={this.state.content}
                                         rows={3} 
                                         placeholder="Listing Content"
                                         onChange={(event) => this.handleOnChange(event)} />
-                                    </Form.Group>
-                                </Card.Text>
-                                <Button variant="primary" type="submit"> {editOrSubmit()} </Button>
-                            </Card.Body>
-                        </Card>
-                    </Form.Group>
-                </Form>
+                                </Form.Group>
+                                <Form.Group controlId="exampleForm.ControlInput1">
+                                    <Form.Control 
+                                        name="link" 
+                                        type="text"
+                                        value={this.state.link}
+                                        placeholder="Listing Picture Link" 
+                                        onChange={(event) => this.handleOnChange(event)} />
+                                </Form.Group>                                
+                                <Button className="float-right" variant="outline-light" type="submit"> {editOrSubmit()} </Button>
+                            </Form.Group>
+                        </Form>
+                    </Card.Body>
+                </Card>                
             </>
         )
     }
