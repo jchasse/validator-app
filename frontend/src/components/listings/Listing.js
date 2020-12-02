@@ -1,8 +1,10 @@
 import React from 'react'
 import {Card, Button, Image, Row, Container} from 'react-bootstrap'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import '../../App.css'
 
+import {deleteListing} from '../../actions/listings'
 
 function Listing(props) {
 
@@ -19,6 +21,4 @@ function Listing(props) {
         </>
     )
 }
-
-
-export default withRouter(Listing)
+export default withRouter(connect(null, {deleteListing})(Listing))
