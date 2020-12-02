@@ -6,5 +6,12 @@ class FeedbacksController < ApplicationController
         render json: ListingSerializer.new(listing)
     end
 
+    def update
+        feedback = Feedback.find_by(id: params[:id])
+        feedback.update(feedback_params)
+        listing = Listing.find_by(id: params[:listing_id])
+        render json: ListingSerializer.new(listing)
+    end
+
 
 end
