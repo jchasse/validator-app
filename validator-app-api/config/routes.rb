@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+    # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :feedbacks
   resources :listings
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  resources :listings do
+    resources :feedbacks
+  end
+
 end
