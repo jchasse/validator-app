@@ -2,7 +2,6 @@ const listingsReducer = (state = [], action) => {
 
     let listings
     let listing
-    let index
 
     switch(action.type) {
 
@@ -25,16 +24,6 @@ const listingsReducer = (state = [], action) => {
             listings = state.map(listing => listing.id === action.payload.id ? (Object.assign( {}, {id: action.payload.id}, action.payload.attributes)) : listing )
             console.log(`EDIT REDUCER FIRED: ${listings}`)
             return listings
-         
-        case 'UPVOTE_LISTING':
-            index = state.findIndex( listing => listing.id === action.payload.id)
-            listing = state[index]
-            return [...state.slice(0, index), Object.assign({}, listing, { votes: listing.votes += 1 }), ...state.slice(index + 1)]
-
-        case 'DOWNVOTE_LISTING':
-            index = state.findIndex( listing => listing.id === action.payload.id)
-            listing = state[index]
-            return [...state.slice(0, index), Object.assign({}, listing, { votes: listing.votes -= 1 }), ...state.slice(index + 1)]
 
         default:
             return state
