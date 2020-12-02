@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
+import {Form, Button, ListGroupItem, Row, Col} from 'react-bootstrap'
+
 import { addFeedback, editFeedback} from '../../actions/feedbacks'
 
 
