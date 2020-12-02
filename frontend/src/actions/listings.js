@@ -4,7 +4,7 @@ export const fetchListings = () => {
         fetch(url)
             .then(response => response.json())
             .then( listings => {
-                console.log(`INDEX FETCH FIRED: ${listings.data}`)
+                console.log("INDEX FETCH FIRED: LISTINGS")
                 dispatch({
                     type: "FETCH_LISTINGS",
                     payload: listings.data
@@ -25,7 +25,7 @@ export const addListing = listing => {
         fetch(url, options)
             .then(response => response.json())
             .then(listing => {
-                console.log(`CREATE FETCH FIRED: ${listing.data}`)
+                console.log("CREATE FETCH FIRED: LISTING")
                 dispatch({
                     type: "ADD_LISTING", 
                     payload: listing.data
@@ -46,7 +46,7 @@ export const editListing = listing => {
         fetch(url, options)
             .then(response => response.json())
             .then(listing => {
-                console.log(`EDIT FETCH FIRED: ${listing.data}`)
+                console.log("EDIT FETCH FIRED: LISTING")
                 dispatch({
                     type: "EDIT_LISTING", 
                     payload: listing.data
@@ -54,11 +54,6 @@ export const editListing = listing => {
             })
     }
 }
-//     return {
-//         type: 'EDIT_LISTING',
-//         payload: listing
-//     }
-// } 
 
 export const deleteListing = listingId => {
     return (dispatch) => {
@@ -68,7 +63,7 @@ export const deleteListing = listingId => {
         fetch(url, options)
             .then(response => response.json())
             .then(message => {
-                console.log(`DELETE FETCH FIRED(${message}): ${listingId}`)
+                console.log("DELETE FETCH FIRED: LISTING")
                 dispatch({
                     type: "DELETE_LISTING", 
                     payload: listingId
