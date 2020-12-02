@@ -1,18 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
+// import {connect} from 'react-redux'
+
 import Listing from './Listing'
-// import {CardDeck, CardColumns} from 'react-bootstrap'
+// import {listings} from '../../containers/ListingsContainer'
 
 
-class Listings extends Component {
+function Listings(props){ 
+    const listingsList = props.listings.map( listing => <Listing key={listing.id} listing={listing} />)
     
-    render() {
-        const listingsList = this.props.listings.map( listing => <Listing key={listing.id} listing={listing} deleteListing={this.props.deleteListing} upvoteListing={this.props.upvoteListing} downvoteListing={this.props.downvoteListing}/>)
-        return (
-            <>
-            {listingsList}
-            </>
-        )
-    }
+    return <>{listingsList}</>
 }
 
 export default Listings
+// export default connect(null, {listings})(Listings)
