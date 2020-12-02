@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  good_deal: false
+  love: false
+  neighborhood: false
+  overpriced: false
+  underpriced: false
+  listing: one
+
+two:
+  good_deal: false
+  love: false
+  neighborhood: false
+  overpriced: false
+  underpriced: false
+  listing: two
