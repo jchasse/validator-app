@@ -71,17 +71,3 @@ export const deleteListing = listingId => {
             })
     }
 }
-
-export const upvoteListing = listing => {
-    return {
-        type: 'UPVOTE_LISTING',
-        payload: listing
-    }
-} 
-
-export const downvoteListing = listing => {
-    return {
-        type: 'DOWNVOTE_LISTING',
-        payload: listing
-    }
-} 
