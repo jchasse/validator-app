@@ -4,25 +4,10 @@ import {withRouter} from 'react-router-dom'
 import {Form, Card, Button, Col} from 'react-bootstrap'
 
 import {addListing, editListing} from '../../actions/listings'
+import States from '../States'
+
 
 class ListingInput extends Component {
-
-    // constructor(props) {
-
-    //     // const { id, title, city, state, content, price, cashflow, link } = this.props.listing
-
-    //     super(props)
-    //     this.state = {
-    //         id: (this.props.listing ? this.props.listing.id : ''),
-    //         title: (this.props.listing ? this.props.listing.title : ''),
-    //         city: (this.props.listing ? this.props.listing.city : ''),
-    //         state: (this.props.listing ? this.props.listing.state : ''),
-    //         content: (this.props.listing ? this.props.listing.content : ''),
-    //         price: (this.props.listing ? this.props.listing.price : ''),
-    //         cashflow: (this.props.listing ? this.props.listing.cashflow : ''),
-    //         link: (this.props.listing ? this.props.listing.link : '')
-    //     }
-    // }
 
     constructor({id, title, city, state, content, price, cashflow, link, votes}) {
 
