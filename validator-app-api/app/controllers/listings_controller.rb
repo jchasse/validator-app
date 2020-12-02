@@ -7,6 +7,7 @@ class ListingsController < ApplicationController
 
     def create
         listing = Listing.create(listing_params)
+        # listing.feedbacks.create()
         render json: ListingSerializer.new(listing)
     end
 
@@ -18,7 +19,7 @@ class ListingsController < ApplicationController
 
     def destroy
         listing = Listing.find_by(id: params[:id])
-        listing.delete
+        listing.destroy
         render json: {message: "Success"}
     end
 
