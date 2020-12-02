@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import {Container, Row, Col} from 'react-bootstrap'
+import {Container} from 'react-bootstrap'
 import './App.css'
 
 import ListingsContainer from './containers/ListingsContainer'
@@ -14,12 +14,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Navbar />
-        <Container fluid>
-          {/* <ListingsContainer /> */}
-          <Row>
-            <Col sm={4}><ListingsContainer /></Col>
-            <Col className="map"> </Col>
-          </Row>
+        <Container sm={8}>
+          <ListingsContainer />
         </Container>
       </div>
     )
