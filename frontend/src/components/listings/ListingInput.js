@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import {Form, Card, Button} from 'react-bootstrap'
+import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 
+import {addListing, editListing} from '../../actions/listings'
 
 class ListingInput extends Component {
 
@@ -116,5 +118,4 @@ class ListingInput extends Component {
     }
 }
 
-export default withRouter(ListingInput) 
-
+export default withRouter(connect(null, {addListing, editListing})(ListingInput))
