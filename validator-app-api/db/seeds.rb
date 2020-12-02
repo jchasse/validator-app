@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-listing = Listing.create({
+@listing = Listing.create({
     title: "Great San Antonio pool route",
     city: "San Antonio",
     state: "TX",
@@ -17,5 +17,13 @@ listing = Listing.create({
     votes: 22
 })
 
+@listing.feedbacks.create(good_deal: true, love: true, neighborhood: false, overpriced: true, underpriced: false)
+
+
+
+
+# @user = User.create(first_name: "Max", last_name: "Charles", email: "max@test.com", mobile_number: "123-456-7890", password: "max")
+# @account = Account.create(org_name: "Google", website: "google-legal-support@google.com", toll_free_number: "1-800-123-4567")
+# @user.digitalprints.create(kind: "Email", account_id: @account.id)
 
 
