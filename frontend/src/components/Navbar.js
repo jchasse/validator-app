@@ -1,8 +1,6 @@
 import React from 'react'
-import {Navbar, Nav, Form, FormControl, Button} from 'react-bootstrap'
+import {Navbar, Nav} from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-// import '../App.css'
-
  
 function NavBar(){
 
@@ -20,10 +18,6 @@ function NavBar(){
                             <Nav.Link>New Listing</Nav.Link>
                         </LinkContainer>
                     </Nav>
-                    <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-dark">Search</Button>
-                    </Form>
                 </Navbar.Collapse>
             </Navbar>
         </>
