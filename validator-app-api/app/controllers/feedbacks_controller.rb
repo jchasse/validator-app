@@ -20,5 +20,11 @@ class FeedbacksController < ApplicationController
         render json: ListingSerializer.new(listing)
     end
 
+    private
+
+    def feedback_params
+        params.require(:feedback).permit(:comment)
+    end
+
 
 end
