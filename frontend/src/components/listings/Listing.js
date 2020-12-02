@@ -2,7 +2,12 @@ import React from 'react'
 import {Card, Button, Image, Row, Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
+import {Card, Button, Row, Col, ListGroup} from 'react-bootstrap'
+
 import '../../App.css'
+// import { format } from "date-fns"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import {deleteListing} from '../../actions/listings'
 
@@ -12,6 +17,9 @@ function Listing(props) {
         props.deleteListing(props.listing.id)
         props.history.push('/listings')
       }
+
+    //   "2020-11-25T17:51:21.019Z"
+    // let formattedDate = props.listing && props.listing.created_at ? format(props.listing.created_at, "MMMM do, yyyy H:mma") : ""
 
     return (
         <>
@@ -34,6 +42,10 @@ function Listing(props) {
                             <Card.Text> {/* {formattedDate} */} {/* {props.listing && props.listing.created_at} */} </Card.Text>                     
                         </Col>
                         <Col>
+                            <Button className="float-right" variant="danger" size="sm" onClick={ () => handleOnDelete()}> <FontAwesomeIcon icon={faTrash} /> </Button>
+                            <Button className="float-right" variant="secondary" size="sm" onClick={ () => props.history.push(`/listings/${props.listing.id}/edit`)} ><FontAwesomeIcon icon={faEdit} /></Button>
+                        </Col>
+                    </Row>                    
                 </Card.Body>
             </Card>
         </>
