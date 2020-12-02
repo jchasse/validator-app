@@ -1,5 +1,4 @@
 import React from 'react'
-import {Card, Button, Image, Row, Container} from 'react-bootstrap'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router-dom'
 import {Card, Button, Row, Col, ListGroup} from 'react-bootstrap'
