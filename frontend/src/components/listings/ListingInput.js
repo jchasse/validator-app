@@ -9,21 +9,19 @@ import States from '../States'
 
 class ListingInput extends Component {
 
-    constructor({id, title, city, state, content, price, cashflow, link, votes}) {
-
+    constructor() {
         super()
         this.state = {
-            id: (id ? id : ''),
-            title: (id ? title : ''),
-            city: (id ? city : ''),
-            state: (id ? state : ''),
-            content: (id ? content : ''),
-            price: (id ? price : ''),
-            cashflow: (id ? cashflow : ''),
-            link: (id ? link : ''),
-            votes: (id ? votes : '')
-        }
-    }
+                id: '',
+                title: '',
+                city: '',
+                state: '',
+                content: '',
+                price: '',
+                cashflow: '',
+                link: '',
+                votes: ''
+}}
 
     handleOnChange(event) {
         this.setState({
@@ -47,14 +45,25 @@ class ListingInput extends Component {
             price: '',
             cashflow: '',
             link: '',
-            votes: 0
+            votes: ''
         })
         // this.props.history.push(`/listings/${this.state.id}`)
         this.props.history.push(`/listings`)
 
     }
 
+    componentDidMount() {
+        console.log("COMPONENT DID MOUNT")
+        if (this.props.listing){ 
+            this.setState({
+                ...this.props.listing
+            })
+        }
+        // this.props.listing? this.setState({...this.props.listing}) : null
+    }
+
     componentDidUpdate(prevProps) {
+        console.log("COMPONENT DID UPDATE")
         if (prevProps !== this.props){ 
             this.setState({
                 ...this.props.listing
@@ -64,10 +73,10 @@ class ListingInput extends Component {
 
     render() {
         const editOrSubmit = () => !this.props.listing ? 'Submit' : 'Update'
+        
         return (
             <>
                 <Card border="dark" bg="dark">
-                    {/* <Card.Img variant="top" src="https://picsum.photos/800/200" />               */}
                     <Card.Body>
                         <Form onSubmit={(event) => this.handleOnSubmit(event)}> 
                             <Form.Group>

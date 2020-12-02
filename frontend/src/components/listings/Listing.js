@@ -18,13 +18,16 @@ function Listing(props) {
         props.history.push('/listings')
       }
 
+    const handleOnEdit = () => {
+        props.history.push(`/listings/${props.listing.id}/edit`)
+    }
+
     //   "2020-11-25T17:51:21.019Z"
     // let formattedDate = props.listing && props.listing.created_at ? format(props.listing.created_at, "MMMM do, yyyy H:mma") : ""
 
     return (
         <>
             <Card>
-                {/* <Card.Img variant="top" src="https://cdn.pixabay.com/photo/2016/06/24/10/47/architecture-1477041_1280.jpg" /> */}
                 <Card.Img variant="top" src={`${props.listing.link}`} />
 
                 <Card.Body> 
@@ -43,7 +46,7 @@ function Listing(props) {
                         </Col>
                         <Col>
                             <Button className="float-right" variant="danger" size="sm" onClick={ () => handleOnDelete()}> <FontAwesomeIcon icon={faTrash} /> </Button>
-                            <Button className="float-right" variant="secondary" size="sm" onClick={ () => props.history.push(`/listings/${props.listing.id}/edit`)} ><FontAwesomeIcon icon={faEdit} /></Button>
+                            <Button className="float-right" variant="secondary" size="sm" onClick={ () => handleOnEdit()} ><FontAwesomeIcon icon={faEdit} /></Button>
                         </Col>
                     </Row>                    
                 </Card.Body>
