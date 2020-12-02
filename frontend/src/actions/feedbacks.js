@@ -40,3 +40,19 @@ export const editFeedback = feedback => {
     }
 }
 
+export const deleteFeedback = feedbackId => {
+    return (dispatch) => {
+        const url = `http://localhost:3000/feedbacks/${feedbackId}`
+        const options = {method: "DELETE"}
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(listing => {
+                console.log('DELETE FETCH: FEEDBACK')
+                dispatch({
+                    type: "EDIT_LISTING", 
+                    payload: listing.data
+                })
+            })
+    }
+}
