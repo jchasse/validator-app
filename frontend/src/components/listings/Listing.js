@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import {deleteListing} from '../../actions/listings'
+import FeedbacksContainer from '../../containers/FeedbacksContainer'
 
 function Listing(props) {
 
@@ -47,6 +48,9 @@ function Listing(props) {
                         </Col>
                     </Row>                    
                 </Card.Body>
+                <ListGroup className="list-group-flush">
+                    <FeedbacksContainer listing={props.listing}/>
+                </ListGroup>
             </Card>
         </>
     )
