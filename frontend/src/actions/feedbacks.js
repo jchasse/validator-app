@@ -19,3 +19,24 @@ export const addFeedback = feedback => {
     }
 }
 
+export const editFeedback = feedback => {
+    return (dispatch) => {
+        const url = `http://localhost:3000/listings/${feedback.listingId}/feedbacks/${feedback.id}`
+        const options = {
+            method: "PATCH",
+            headers: {"Content-Type": "application/json", "Accept": "application/json"},
+            body: JSON.stringify({feedback})
+        }
+
+        fetch(url, options)
+            .then(response => response.json())
+            .then(listing => {
+                console.log(`EDIT FETCH FIRED: ${listing.data}`)
+                dispatch({
+                    type: "EDIT_LISTING", 
+                    payload: listing.data
+                })
+            })
+    }
+}
+
