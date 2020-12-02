@@ -5,10 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 
 import {editFeedback, deleteFeedback} from '../../actions/feedbacks'
+import FeedbackInput from './FeedbackInput'
+
 class Feedback extends Component {
 
     state = {
         edit: false
+    }
+
+    editOrSubmit = () => {
+        this.setState(prevState => ({edit: !prevState.edit}))
     }
 
     render() {
@@ -22,6 +28,12 @@ class Feedback extends Component {
                 </ListGroupItem>    
             )
         } else {
+            return (
+                <ListGroupItem>
+                    <FeedbackInput id={this.props.feedback.id} comment={this.props.feedback.comment} listingId={this.props.feedback.listing_id} editOrSubmit={this.editOrSubmit}/>
+                </ListGroupItem>
+            )
+        }
     }
 }
 export default connect(null, {editFeedback, deleteFeedback})(Feedback)
