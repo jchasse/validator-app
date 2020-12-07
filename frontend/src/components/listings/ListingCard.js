@@ -53,7 +53,7 @@ function Listing(props) {
                 <ListGroup className="list-group-flush">
                     <FeedbacksContainer listing={props.listing}/>
                 </ListGroup>
-            </Card>
+            </Card> 
         </>
     )
 }

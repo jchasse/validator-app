@@ -9,6 +9,7 @@ class CreateListings < ActiveRecord::Migration[6.0]
       t.string :cashflow
       t.string :link
       t.string :votes
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end

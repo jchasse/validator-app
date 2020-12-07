@@ -1,8 +1,5 @@
 import React from 'react'
-// import {connect} from 'react-redux'
-
-import Listing from './Listing'
-// import {listings} from '../../containers/ListingsContainer'
+import Listing from './ListingCard'
 
 
 function Listings(props){ 
@@ -12,4 +9,3 @@ function Listings(props){
 }
 
 export default Listings
-// export default connect(null, {listings})(Listings)

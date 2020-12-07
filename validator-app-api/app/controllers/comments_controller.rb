@@ -1,23 +1,23 @@
-class FeedbacksController < ApplicationController
+class CommentsController < ApplicationController
     # before_action :set_listing, except: [:create]
 
     def create
         listing = Listing.find_by(id: params[:listing_id])
-        listing.feedbacks.create(feedback_params)
+        listing.comments.create(comment_params)
         render json: ListingSerializer.new(listing)
     end
 
     def update
-         listing = Listing.find_by(id: params[:listing_id])       
-        feedback = Feedback.find_by(id: params[:id])
-        feedback.update(feedback_params)
+        listing = Listing.find_by(id: params[:listing_id])
+        comment = Comment.find_by(id: params[:id])
+        comment.update(comment_params)
         render json: ListingSerializer.new(listing)
     end
 
     def destroy
-        feedback = Feedback.find_by(id: params[:id])
-        listing = Listing.find_by(id: feedback.listing_id)
-        feedback.delete
+        comment = Comment.find_by(id: params[:id])
+        listing = Listing.find_by(id: comment.listing_id)
+        comment.delete
         render json: ListingSerializer.new(listing)
     end
 
@@ -27,8 +27,8 @@ class FeedbacksController < ApplicationController
     #     @listing = Listing.find_by(id: params[:listing_id])
     # end
 
-    def feedback_params
+    def comment_params
         params.require(:feedback).permit(:comment)
     end
-
+    
 end

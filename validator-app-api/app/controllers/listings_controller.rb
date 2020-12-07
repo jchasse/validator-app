@@ -1,4 +1,5 @@
 class ListingsController < ApplicationController
+    # skip_before_action :authorized, only: [:index]
 
     def index 
         listings = Listing.all
@@ -7,7 +8,6 @@ class ListingsController < ApplicationController
 
     def create
         listing = Listing.create(listing_params)
-        # listing.feedbacks.create()
         render json: ListingSerializer.new(listing)
     end
 

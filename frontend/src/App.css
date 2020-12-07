@@ -6,3 +6,34 @@
 .map {
     background-color: rgb(210, 211, 211);
 }
+
+.nav-pills .nav-link.active {
+    background-color: #343a40!important;
+    text-align: center;
+}
+
+.nav-pills .nav-link {
+    color: black;
+    text-align: center;
+}
+
+#listinggray {
+    background-color: rgb(210, 211, 211);
+}
+
+#listingpurple {
+    background-color: rgb(164, 71, 218);
+}
+
+#listingteal {
+    background-color: rgb(2, 182, 182);
+}
+
+#listinggreen {
+    background-color: rgb(2, 182, 41);
+}
+
+#top-bottom-padding {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

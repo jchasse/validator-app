@@ -5,6 +5,7 @@ import {Form, Card, Button, Col} from 'react-bootstrap'
 
 import {addListing, editListing} from '../../actions/listings'
 import States from '../States'
+import EditOrSubmitButton from '../buttons/EditOrSubmitButton'
 
 
 class ListingInput extends Component {
@@ -118,8 +119,8 @@ class ListingInput extends Component {
                                         value={this.state.link}
                                         placeholder="Listing Picture Link" 
                                         onChange={(event) => this.handleOnChange(event)} />
-                                </Form.Group>                                
-                                <Button className="float-right" variant="outline-light" type="submit"> {editOrSubmit()} </Button>
+                                </Form.Group> 
+                                <Button className="float-right" variant="outline-light" size="sm" type="submit"> {editOrSubmit()} </Button>
                             </Form.Group>
                         </Form>
                     </Card.Body>
